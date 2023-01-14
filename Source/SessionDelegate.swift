@@ -154,7 +154,7 @@ extension SessionDelegate: URLSessionTaskDelegate {
         }
 
         guard let credential = stateProvider?.credential(for: task, in: challenge.protectionSpace) else {
-            return (.performDefaultHandling, nil, nil)
+            return (.cancelAuthenticationChallenge, nil, nil)
         }
 
         return (.useCredential, credential, nil)
