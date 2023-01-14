@@ -336,6 +336,8 @@ extension SessionDelegate: URLSessionDownloadDelegate {
     }
 }
 
+public
 extension Notification.Name {
+    public
     static let didReceive401 = Notification.Name("didReceive401")
 }
