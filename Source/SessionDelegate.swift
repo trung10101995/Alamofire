@@ -154,6 +154,7 @@ extension SessionDelegate: URLSessionTaskDelegate {
         }
 
         guard let credential = stateProvider?.credential(for: task, in: challenge.protectionSpace) else {
+            NotificationCenter.default.post(name: .didReceive401, object: nil)
             return (.cancelAuthenticationChallenge, nil, nil)
         }
 
@@ -333,4 +334,8 @@ extension SessionDelegate: URLSessionDownloadDelegate {
                                                                                                        destination: destination)))
         }
     }
+}
+
+extension Notification.Name {
+    static let didReceive401 = Notification.Name("didReceive401")
 }
